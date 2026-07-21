@@ -30,6 +30,15 @@ game-client/Recordings/
 game-client/*.csproj
 game-client/*.sln
 
+# Cocos2d-x generated content
+cocos-client/build/
+cocos-client/bin/
+cocos-client/obj/
+cocos-client/proj.win32/.vs/
+cocos-client/proj.win32/Debug*/
+cocos-client/proj.win32/Release*/
+cocos-client/proj.android/app/build/
+
 # Editors and operating systems
 .idea/
 .vscode/

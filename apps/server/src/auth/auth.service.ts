@@ -6,6 +6,7 @@ import type { GuestAuthRequest, GuestAuthResponse } from '@kingdom/contracts';
 import { DatabaseService } from '../database/database.service.js';
 import { ENVIRONMENT } from '../config/environment.module.js';
 import type { Environment } from '../config/environment.js';
+import { CITY_BUILDING_RULES } from '../city/building-rules.js';
 import { DomainError } from '../platform/errors.js';
 
 export interface AccessClaims {
@@ -30,16 +31,18 @@ export class AuthService {
   }
 
   async authenticateGuest(request: GuestAuthRequest): Promise<GuestAuthResponse> {
-    let identity: { account_id: string; account_status: string; player_id: string };
+    let identity: { account_id: string; account_status: string; player_id: string; city_id: string };
     try {
       identity = await this.database.transaction().execute(async (transaction) => {
         const existing = await transaction
           .selectFrom('accounts')
           .innerJoin('players', 'players.account_id', 'accounts.id')
+          .innerJoin('cities', 'cities.player_id', 'players.id')
           .select([
             'accounts.id as account_id',
             'accounts.status as account_status',
             'players.id as player_id',
+            'cities.id as city_id',
           ])
           .where('accounts.installation_id', '=', request.installation_id)
           .executeTakeFirst();
@@ -52,6 +55,21 @@ export class AuthService {
               'This account is disabled.',
             );
           }
+
+          await transaction
+            .insertInto('buildings')
+            .values(
+              CITY_BUILDING_RULES.map((rule) => ({
+                id: uuidv7(),
+                city_id: existing.city_id,
+                slot_key: rule.slotKey,
+                building_type: rule.buildingType,
+                level: rule.initialLevel,
+              })),
+            )
+            .onConflict((conflict) => conflict.columns(['city_id', 'slot_key']).doNothing())
+            .execute();
+
           return existing;
         }
 
@@ -109,30 +127,22 @@ export class AuthService {
           .execute();
         await transaction
           .insertInto('buildings')
-          .values([
-            {
+          .values(
+            CITY_BUILDING_RULES.map((rule) => ({
               id: uuidv7(),
               city_id: cityId,
-              slot_key: 'palace',
-              building_type: 'palace',
-              level: 1,
-            },
-            { id: uuidv7(), city_id: cityId, slot_key: 'farm_1', building_type: 'farm', level: 1 },
-            {
-              id: uuidv7(),
-              city_id: cityId,
-              slot_key: 'barracks',
-              building_type: 'barracks',
-              level: 1,
-            },
-          ])
+              slot_key: rule.slotKey,
+              building_type: rule.buildingType,
+              level: rule.initialLevel,
+            })),
+          )
           .execute();
         await transaction
           .insertInto('troop_stacks')
           .values({ city_id: cityId, troop_type: 'infantry', tier: 1, count: '1000' })
           .execute();
 
-        return { account_id: accountId, account_status: 'active', player_id: playerId };
+        return { account_id: accountId, account_status: 'active', player_id: playerId, city_id: cityId };
       });
     } catch (error: unknown) {
       if (

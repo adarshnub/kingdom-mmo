@@ -39,6 +39,7 @@ export const queueJobSchema = z.object({
   id: uuidSchema,
   job_type: z.string(),
   ref_id: uuidSchema.nullable(),
+  start_at: rfc3339Schema,
   finish_at: rfc3339Schema,
   status: z.string(),
 });
@@ -76,6 +77,15 @@ export const startBuildRequestSchema = z.object({
 export const startBuildResponseSchema = z.object({
   queue: queueJobSchema,
   resources: resourcesSchema,
+});
+
+export const speedUpBuildRequestSchema = z.object({
+  building_id: uuidSchema,
+});
+
+export const speedUpBuildResponseSchema = z.object({
+  queue: queueJobSchema,
+  building: buildingSchema,
 });
 
 export const viewportQuerySchema = z
@@ -152,6 +162,8 @@ export type GuestAuthResponse = z.infer<typeof guestAuthResponseSchema>;
 export type BootstrapResponse = z.infer<typeof bootstrapResponseSchema>;
 export type StartBuildRequest = z.infer<typeof startBuildRequestSchema>;
 export type StartBuildResponse = z.infer<typeof startBuildResponseSchema>;
+export type SpeedUpBuildRequest = z.infer<typeof speedUpBuildRequestSchema>;
+export type SpeedUpBuildResponse = z.infer<typeof speedUpBuildResponseSchema>;
 export type ViewportQuery = z.infer<typeof viewportQuerySchema>;
 export type DispatchMarchRequest = z.infer<typeof dispatchMarchRequestSchema>;
 export type RealtimeEnvelope = z.infer<typeof realtimeEnvelopeSchema>;

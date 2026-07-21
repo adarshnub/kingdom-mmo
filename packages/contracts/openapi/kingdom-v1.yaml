@@ -48,6 +48,22 @@ paths:
           content:
             application/json:
               schema: { $ref: '#/components/schemas/StartBuildResponse' }
+  /v1/city/build/speed-up:
+    post:
+      operationId: speedUpBuildingUpgrade
+      security: [{ bearerAuth: [] }]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/SpeedUpBuildRequest' }
+      responses:
+        '200':
+          description: Building queue completed immediately
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/SpeedUpBuildResponse' }
   /v1/map/viewport:
     get:
       operationId: getMapViewport
@@ -91,11 +107,12 @@ components:
         gold: { type: string, pattern: '^(0|[1-9]\d*)$' }
     QueueJob:
       type: object
-      required: [id, job_type, ref_id, finish_at, status]
+      required: [id, job_type, ref_id, start_at, finish_at, status]
       properties:
         id: { type: string, format: uuid }
         job_type: { type: string }
         ref_id: { type: string, format: uuid }
+        start_at: { type: string, format: date-time }
         finish_at: { type: string, format: date-time }
         status: { type: string }
     StartBuildRequest:
@@ -113,3 +130,26 @@ components:
           properties:
             queue: { $ref: '#/components/schemas/QueueJob' }
             resources: { $ref: '#/components/schemas/Resources' }
+    SpeedUpBuildRequest:
+      type: object
+      required: [building_id]
+      properties:
+        building_id: { type: string, format: uuid }
+    SpeedUpBuildResponse:
+      type: object
+      required: [data]
+      properties:
+        data:
+          type: object
+          required: [queue, building]
+          properties:
+            queue: { $ref: '#/components/schemas/QueueJob' }
+            building: { $ref: '#/components/schemas/Building' }
+    Building:
+      type: object
+      required: [id, slot_key, building_type, level]
+      properties:
+        id: { type: string, format: uuid }
+        slot_key: { type: string }
+        building_type: { type: string }
+        level: { type: integer, minimum: 0 }

@@ -6,6 +6,7 @@
 - Corepack and pnpm 10.14
 - Docker Engine/Desktop with Compose v2
 - Unity Hub and Unity 6.3 LTS for client development
+- Optional Cocos client prerequisites: Visual Studio 2022 Build Tools with Desktop C++, CMake, and Cocos2d-x 3.x
 - Optional: Terraform 1.9+ for infrastructure validation
 
 ## First run
@@ -33,6 +34,22 @@ pnpm dev
 | pgAdmin           | localhost:5050                  | Tools profile only                          |
 
 Start optional stacks with `pnpm local:observability` and `pnpm local:tools`.
+
+## Cocos client smoke build
+
+The Cocos2d-x client lives in `cocos-client/` beside the Unity reference client.
+Install Cocos2d-x 3.x locally and set `COCOS2DX_ROOT` before configuring the
+Windows desktop target:
+
+```powershell
+.\cocos-client\scripts\check-tooling.ps1
+$env:COCOS2DX_ROOT="C:\dev\cocos2d-x-3.17.2"
+cmake -S cocos-client -B cocos-client/build/win32-x86 -G "Visual Studio 17 2022" -A Win32
+cmake --build cocos-client/build/win32-x86 --config Debug
+```
+
+Keep `pnpm dev` running while testing login, bootstrap, city, map, and realtime
+smoke flows.
 
 ## Safe database reset
 

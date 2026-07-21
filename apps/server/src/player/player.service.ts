@@ -38,7 +38,7 @@ export class PlayerService {
         .execute(),
       this.database
         .selectFrom('queue_jobs')
-        .select(['id', 'job_type', 'ref_id', 'finish_at', 'status'])
+        .select(['id', 'job_type', 'ref_id', 'start_at', 'finish_at', 'status'])
         .where('city_id', '=', player.city_id)
         .where('status', 'in', ['pending', 'processing'])
         .orderBy('finish_at')
@@ -68,6 +68,7 @@ export class PlayerService {
         buildings,
         active_queues: queues.map((queue) => ({
           ...queue,
+          start_at: new Date(queue.start_at).toISOString(),
           finish_at: new Date(queue.finish_at).toISOString(),
         })),
       },

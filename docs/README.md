@@ -14,6 +14,7 @@ Start with the product blueprint, then read the system document for the area you
 - [API contracts](engineering/api-contracts.md): REST, realtime, common types, errors, and idempotency.
 - [Gameplay rules](engineering/gameplay-rules.md): deterministic combat, timers, economy, and invariants.
 - [Unity client](engineering/unity-client.md): scenes, assemblies, networking, content, and performance.
+- [Cocos client](engineering/cocos-client.md): Cocos2d-x migration architecture and client boundaries.
 
 ## Development and operations
 
