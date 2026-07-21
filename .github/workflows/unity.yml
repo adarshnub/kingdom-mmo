@@ -24,7 +24,7 @@ jobs:
           unityVersion: 6000.3.0f1
           testMode: EditMode
           githubToken: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: unity-test-results
