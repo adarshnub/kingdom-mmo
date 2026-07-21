@@ -1,0 +1,18 @@
+:8080 {
+  handle_path /api/* {
+    reverse_proxy host.docker.internal:3000
+  }
+
+  handle_path /realtime/* {
+    reverse_proxy host.docker.internal:3001
+  }
+
+  handle_path /admin/* {
+    reverse_proxy host.docker.internal:3002
+  }
+
+  handle_path /assets/* {
+    reverse_proxy minio:9000
+  }
+}
+

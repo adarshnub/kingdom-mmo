@@ -1,0 +1,16 @@
+{
+  "name": "Kingdom.Editor",
+  "rootNamespace": "Kingdom.Editor",
+  "references": [
+    "Kingdom.Boot",
+    "Kingdom.Core",
+    "Kingdom.UI",
+    "Unity.InputSystem",
+    "UnityEngine.UI"
+  ],
+  "includePlatforms": ["Editor"],
+  "autoReferenced": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "allowUnsafeCode": false
+}

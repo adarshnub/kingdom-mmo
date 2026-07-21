@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test-run id="2" testcasecount="9" result="Passed" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0" engine-version="3.5.0.0" clr-version="4.0.30319.42000" start-time="2026-07-21 02:03:51Z" end-time="2026-07-21 02:03:52Z" duration="0.1594293">
+  <test-suite type="TestSuite" id="1000" name="game-client" fullname="game-client" runstate="Runnable" testcasecount="9" result="Passed" start-time="2026-07-21 02:03:51Z" end-time="2026-07-21 02:03:52Z" duration="0.159429" total="9" passed="9" failed="0" inconclusive="0" skipped="0" asserts="0">
+    <properties>
+      <property name="platform" value="EditMode" />
+    </properties>
+    <test-suite type="Assembly" id="1013" name="Kingdom.Tests.EditMode.dll" fullname="C:/Users/adars/Documents/GitHub/kingdom-mmo/game-client/Library/ScriptAssemblies/Kingdom.Tests.EditMode.dll" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-07-21 02:03:51Z" end-time="2026-07-21 02:03:52Z" duration="0.129560" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="35716" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1014" name="Kingdom" fullname="Kingdom" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-07-21 02:03:51Z" end-time="2026-07-21 02:03:52Z" duration="0.125968" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1015" name="Tests" fullname="Kingdom.Tests" runstate="Runnable" testcasecount="8" result="Passed" start-time="2026-07-21 02:03:51Z" end-time="2026-07-21 02:03:52Z" duration="0.122588" total="8" passed="8" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1001" name="GameClockTests" fullname="Kingdom.Tests.GameClockTests" classname="Kingdom.Tests.GameClockTests" runstate="Runnable" testcasecount="2" result="Passed" start-time="2026-07-21 02:03:51Z" end-time="2026-07-21 02:03:52Z" duration="0.100683" total="2" passed="2" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1003" name="Synchronize_UsesServerTimeOffset" fullname="Kingdom.Tests.GameClockTests.Synchronize_UsesServerTimeOffset" methodname="Synchronize_UsesServerTimeOffset" classname="Kingdom.Tests.GameClockTests" runstate="Runnable" seed="637267829" result="Passed" start-time="2026-07-21 02:03:51Z" end-time="2026-07-21 02:03:51Z" duration="0.040174" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+            <test-case id="1002" name="UtcNow_BeforeSynchronizationTracksSystemUtc" fullname="Kingdom.Tests.GameClockTests.UtcNow_BeforeSynchronizationTracksSystemUtc" methodname="UtcNow_BeforeSynchronizationTracksSystemUtc" classname="Kingdom.Tests.GameClockTests" runstate="Runnable" seed="1603759075" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.002195" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+            </test-case>
+          </test-suite>
+          <test-suite type="TestFixture" id="1004" name="GameConfigTests" fullname="Kingdom.Tests.GameConfigTests" classname="Kingdom.Tests.GameConfigTests" runstate="Runnable" testcasecount="6" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.017564" total="6" passed="6" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-suite type="ParameterizedMethod" id="1008" name="ApiBaseUrl_RemovesTrailingSlashes" fullname="Kingdom.Tests.GameConfigTests.ApiBaseUrl_RemovesTrailingSlashes" classname="Kingdom.Tests.GameConfigTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.007519" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1005" name="ApiBaseUrl_RemovesTrailingSlashes(&quot;http://localhost:3000/&quot;,&quot;http://localhost:3000&quot;)" fullname="Kingdom.Tests.GameConfigTests.ApiBaseUrl_RemovesTrailingSlashes(&quot;http://localhost:3000/&quot;,&quot;http://localhost:3000&quot;)" methodname="ApiBaseUrl_RemovesTrailingSlashes" classname="Kingdom.Tests.GameConfigTests" runstate="Runnable" seed="1909729263" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.004862" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1006" name="ApiBaseUrl_RemovesTrailingSlashes(&quot;https://api.kingdom.example///&quot;,&quot;https://api.kingdom.example&quot;)" fullname="Kingdom.Tests.GameConfigTests.ApiBaseUrl_RemovesTrailingSlashes(&quot;https://api.kingdom.example///&quot;,&quot;https://api.kingdom.example&quot;)" methodname="ApiBaseUrl_RemovesTrailingSlashes" classname="Kingdom.Tests.GameConfigTests" runstate="Runnable" seed="354332459" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.000419" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1007" name="ApiBaseUrl_RemovesTrailingSlashes(&quot;https://api.kingdom.example&quot;,&quot;https://api.kingdom.example&quot;)" fullname="Kingdom.Tests.GameConfigTests.ApiBaseUrl_RemovesTrailingSlashes(&quot;https://api.kingdom.example&quot;,&quot;https://api.kingdom.example&quot;)" methodname="ApiBaseUrl_RemovesTrailingSlashes" classname="Kingdom.Tests.GameConfigTests" runstate="Runnable" seed="1144422180" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.000265" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+            <test-suite type="ParameterizedMethod" id="1012" name="RequestTimeoutSeconds_ClampsToSupportedRange" fullname="Kingdom.Tests.GameConfigTests.RequestTimeoutSeconds_ClampsToSupportedRange" classname="Kingdom.Tests.GameConfigTests" runstate="Runnable" testcasecount="3" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.007374" total="3" passed="3" failed="0" inconclusive="0" skipped="0" asserts="0">
+              <properties />
+              <test-case id="1009" name="RequestTimeoutSeconds_ClampsToSupportedRange(1,5)" fullname="Kingdom.Tests.GameConfigTests.RequestTimeoutSeconds_ClampsToSupportedRange(1,5)" methodname="RequestTimeoutSeconds_ClampsToSupportedRange" classname="Kingdom.Tests.GameConfigTests" runstate="Runnable" seed="504053247" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.004425" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1010" name="RequestTimeoutSeconds_ClampsToSupportedRange(30,30)" fullname="Kingdom.Tests.GameConfigTests.RequestTimeoutSeconds_ClampsToSupportedRange(30,30)" methodname="RequestTimeoutSeconds_ClampsToSupportedRange" classname="Kingdom.Tests.GameConfigTests" runstate="Runnable" seed="1624280466" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.000506" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+              <test-case id="1011" name="RequestTimeoutSeconds_ClampsToSupportedRange(120,60)" fullname="Kingdom.Tests.GameConfigTests.RequestTimeoutSeconds_ClampsToSupportedRange(120,60)" methodname="RequestTimeoutSeconds_ClampsToSupportedRange" classname="Kingdom.Tests.GameConfigTests" runstate="Runnable" seed="11370023" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.000331" asserts="0">
+                <properties>
+                  <property name="retryIteration" value="0" />
+                  <property name="repeatIteration" value="0" />
+                </properties>
+              </test-case>
+            </test-suite>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+    <test-suite type="Assembly" id="1018" name="Unity.Addressables.DocExampleCode.Editor.Tests.dll" fullname="C:/Users/adars/Documents/GitHub/kingdom-mmo/game-client/Library/ScriptAssemblies/Unity.Addressables.DocExampleCode.Editor.Tests.dll" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.005725" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+      <properties>
+        <property name="_PID" value="35716" />
+        <property name="_APPDOMAIN" value="Unity Child Domain" />
+        <property name="platform" value="EditMode" />
+        <property name="EditorOnly" value="True" />
+      </properties>
+      <test-suite type="TestSuite" id="1019" name="AddressableAssets" fullname="AddressableAssets" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.004672" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+        <properties />
+        <test-suite type="TestSuite" id="1020" name="DocExampleCode" fullname="AddressableAssets.DocExampleCode" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.003726" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+          <properties />
+          <test-suite type="TestFixture" id="1016" name="TestStub" fullname="AddressableAssets.DocExampleCode.TestStub" classname="AddressableAssets.DocExampleCode.TestStub" runstate="Runnable" testcasecount="1" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.002691" total="1" passed="1" failed="0" inconclusive="0" skipped="0" asserts="0">
+            <properties />
+            <test-case id="1017" name="RequiredTest" fullname="AddressableAssets.DocExampleCode.TestStub.RequiredTest" methodname="RequiredTest" classname="AddressableAssets.DocExampleCode.TestStub" runstate="Runnable" seed="976301955" result="Passed" start-time="2026-07-21 02:03:52Z" end-time="2026-07-21 02:03:52Z" duration="0.000657" asserts="0">
+              <properties>
+                <property name="retryIteration" value="0" />
+                <property name="repeatIteration" value="0" />
+              </properties>
+              <output><![CDATA[Saving results to: C:/Users/adars/AppData/LocalLow/DefaultCompany/game-client\TestResults.xml
+]]></output>
+            </test-case>
+          </test-suite>
+        </test-suite>
+      </test-suite>
+    </test-suite>
+  </test-suite>
+</test-run>

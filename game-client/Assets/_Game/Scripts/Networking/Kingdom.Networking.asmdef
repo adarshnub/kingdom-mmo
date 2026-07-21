@@ -1,0 +1,10 @@
+{
+  "name": "Kingdom.Networking",
+  "rootNamespace": "Kingdom.Networking",
+  "references": ["Kingdom.Core", "Kingdom.Contracts"],
+  "autoReferenced": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "allowUnsafeCode": false
+}
+

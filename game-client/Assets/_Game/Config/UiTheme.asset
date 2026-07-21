@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09e071e7878b4543922e8b279d4087e, type: 3}
+  m_Name: UiTheme
+  m_EditorClassIdentifier: Kingdom.UI::Kingdom.UI.UiTheme
+  colors:
+    background: {r: 0.05882353, g: 0.07450981, b: 0.08235294, a: 1}
+    surface: {r: 0.11764706, g: 0.14117648, b: 0.15686275, a: 1}
+    surfaceRaised: {r: 0.16862746, g: 0.19215687, b: 0.20784314, a: 1}
+    overlay: {r: 0.03137255, g: 0.039215688, b: 0.043137256, a: 0.8627451}
+    parchment: {r: 0.87058824, g: 0.8117647, b: 0.64705884, a: 1}
+    parchmentDark: {r: 0.6784314, g: 0.5921569, b: 0.40392157, a: 1}
+    gold: {r: 0.84705883, g: 0.6666667, b: 0.29803923, a: 1}
+    goldBright: {r: 0.9647059, g: 0.81960785, b: 0.4745098, a: 1}
+    royalBlue: {r: 0.1882353, g: 0.38039216, b: 0.5176471, a: 1}
+    success: {r: 0.36078432, g: 0.6431373, b: 0.35686275, a: 1}
+    danger: {r: 0.60784316, g: 0.23921569, b: 0.20392157, a: 1}
+    warning: {r: 0.8352941, g: 0.5372549, b: 0.20784314, a: 1}
+    textPrimary: {r: 0.9647059, g: 0.9411765, b: 0.8666667, a: 1}
+    textSecondary: {r: 0.7372549, g: 0.73333335, b: 0.69803923, a: 1}
+    textOnLight: {r: 0.14509805, g: 0.12156863, b: 0.09411765, a: 1}
+    divider: {r: 0.39607844, g: 0.35686275, b: 0.27450982, a: 1}
+    disabled: {r: 0.40392157, g: 0.41568628, b: 0.40784314, a: 0.74509805}
+  spacing:
+    referenceResolution: {x: 1080, y: 1920}
+    hairline: 2
+    tiny: 8
+    small: 16
+    medium: 24
+    large: 32
+    extraLarge: 48
+    minimumTouchTarget: 96
+    canvasWidthHeightMatch: 0.5
+  typography:
+    regularFont: {fileID: 0}
+    displayFont: {fileID: 0}
+    hero: 72
+    heading: 48
+    title: 40
+    body: 32
+    caption: 26
+    button: 32
+  motion:
+    pressedScale: 0.96
+    pressResponse: 22
+    submitHoldSeconds: 0.12

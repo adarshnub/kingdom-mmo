@@ -1,0 +1,37 @@
+node_modules/
+.pnpm-store/
+.env
+.env.*
+!.env.example
+dist/
+.next/
+coverage/
+.turbo/
+*.log
+.runtime/
+
+# Local infrastructure
+.data/
+infra/terraform/**/.terraform/
+infra/terraform/**/*.tfstate
+infra/terraform/**/*.tfstate.*
+infra/terraform/**/crash.log
+
+# Unity generated content
+game-client/Library/
+game-client/Temp/
+game-client/Logs/
+game-client/Obj/
+game-client/Build/
+game-client/Builds/
+game-client/UserSettings/
+game-client/MemoryCaptures/
+game-client/Recordings/
+game-client/*.csproj
+game-client/*.sln
+
+# Editors and operating systems
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

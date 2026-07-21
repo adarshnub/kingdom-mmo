@@ -1,0 +1,10 @@
+﻿<Solution>
+  <Project Path="Kingdom.UI.csproj" />
+  <Project Path="Kingdom.Tests.PlayMode.csproj" />
+  <Project Path="Kingdom.Tests.EditMode.csproj" />
+  <Project Path="Kingdom.Core.csproj" />
+  <Project Path="Kingdom.Contracts.csproj" />
+  <Project Path="Kingdom.Editor.csproj" />
+  <Project Path="Kingdom.Networking.csproj" />
+  <Project Path="Kingdom.Boot.csproj" />
+</Solution>

@@ -1,0 +1,8 @@
+**/.next/
+**/dist/
+**/coverage/
+**/Library/
+**/node_modules/
+apps/admin-web/next-env.d.ts
+docs/reference/supplied-blueprint.md
+infra/terraform/**/.terraform/

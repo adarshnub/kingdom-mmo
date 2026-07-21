@@ -1,0 +1,10 @@
+{
+  "name": "Kingdom.Boot",
+  "rootNamespace": "Kingdom.Boot",
+  "references": ["Kingdom.Core", "Kingdom.Networking"],
+  "autoReferenced": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "allowUnsafeCode": false
+}
+

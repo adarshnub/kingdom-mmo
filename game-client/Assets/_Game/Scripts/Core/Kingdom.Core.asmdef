@@ -1,0 +1,9 @@
+{
+  "name": "Kingdom.Core",
+  "rootNamespace": "Kingdom.Core",
+  "references": ["Kingdom.Contracts"],
+  "autoReferenced": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "allowUnsafeCode": false
+}

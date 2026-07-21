@@ -1,0 +1,11 @@
+.git
+.qodo
+node_modules
+**/node_modules
+**/dist
+coverage
+game-client/Library
+game-client/Temp
+infra/terraform/**/.terraform
+*.log
+

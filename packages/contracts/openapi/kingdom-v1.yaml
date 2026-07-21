@@ -1,0 +1,115 @@
+openapi: 3.1.0
+info:
+  title: Kingdom MMO API
+  version: 0.1.0
+servers:
+  - url: http://localhost:3000
+paths:
+  /health/live:
+    get:
+      operationId: getLiveness
+      responses:
+        '200': { description: Process is alive }
+  /health/ready:
+    get:
+      operationId: getReadiness
+      responses:
+        '200': { description: Dependencies are ready }
+        '503': { description: A required dependency is unavailable }
+  /v1/auth/guest:
+    post:
+      operationId: authenticateGuest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/GuestAuthRequest' }
+      responses:
+        '201': { description: Guest account created or restored }
+  /v1/bootstrap:
+    get:
+      operationId: getBootstrap
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: Authoritative player snapshot }
+  /v1/city/build/start:
+    post:
+      operationId: startBuildingUpgrade
+      security: [{ bearerAuth: [] }]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/StartBuildRequest' }
+      responses:
+        '201':
+          description: Building queue created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/StartBuildResponse' }
+  /v1/map/viewport:
+    get:
+      operationId: getMapViewport
+      security: [{ bearerAuth: [] }]
+      responses:
+        '200': { description: Map objects within viewport }
+  /v1/map/march/dispatch:
+    post:
+      operationId: dispatchMarch
+      security: [{ bearerAuth: [] }]
+      parameters: [{ $ref: '#/components/parameters/IdempotencyKey' }]
+      responses:
+        '201': { description: March dispatched }
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema: { type: string, format: uuid }
+  schemas:
+    GuestAuthRequest:
+      type: object
+      required: [installation_id]
+      properties:
+        installation_id: { type: string, format: uuid }
+        display_name: { type: string, minLength: 3, maxLength: 24 }
+    Resources:
+      type: object
+      required: [food, wood, iron, silver, gold]
+      properties:
+        food: { type: string, pattern: '^(0|[1-9]\d*)$' }
+        wood: { type: string, pattern: '^(0|[1-9]\d*)$' }
+        iron: { type: string, pattern: '^(0|[1-9]\d*)$' }
+        silver: { type: string, pattern: '^(0|[1-9]\d*)$' }
+        gold: { type: string, pattern: '^(0|[1-9]\d*)$' }
+    QueueJob:
+      type: object
+      required: [id, job_type, ref_id, finish_at, status]
+      properties:
+        id: { type: string, format: uuid }
+        job_type: { type: string }
+        ref_id: { type: string, format: uuid }
+        finish_at: { type: string, format: date-time }
+        status: { type: string }
+    StartBuildRequest:
+      type: object
+      required: [building_id]
+      properties:
+        building_id: { type: string, format: uuid }
+    StartBuildResponse:
+      type: object
+      required: [data]
+      properties:
+        data:
+          type: object
+          required: [queue, resources]
+          properties:
+            queue: { $ref: '#/components/schemas/QueueJob' }
+            resources: { $ref: '#/components/schemas/Resources' }

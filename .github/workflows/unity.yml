@@ -1,0 +1,31 @@
+name: Unity checks
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'game-client/**'
+      - '.github/workflows/unity.yml'
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  editmode-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: game-ci/unity-test-runner@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          projectPath: game-client
+          unityVersion: 6000.3.0f1
+          testMode: EditMode
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: unity-test-results
+          path: artifacts

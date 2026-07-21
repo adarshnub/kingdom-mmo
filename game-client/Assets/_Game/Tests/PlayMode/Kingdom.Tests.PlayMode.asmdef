@@ -1,0 +1,14 @@
+{
+  "name": "Kingdom.Tests.PlayMode",
+  "rootNamespace": "Kingdom.Tests",
+  "references": [
+    "Kingdom.UI",
+    "UnityEngine.UI",
+    "Unity.TextMeshPro"
+  ],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "autoReferenced": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "allowUnsafeCode": false
+}

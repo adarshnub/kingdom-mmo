@@ -1,0 +1,17 @@
+{
+  "name": "Kingdom.UI",
+  "rootNamespace": "Kingdom.UI",
+  "references": [
+    "Kingdom.Boot",
+    "Kingdom.Contracts",
+    "Kingdom.Core",
+    "Kingdom.Networking",
+    "Unity.InputSystem",
+    "UnityEngine.UI",
+    "Unity.TextMeshPro"
+  ],
+  "autoReferenced": true,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "allowUnsafeCode": false
+}

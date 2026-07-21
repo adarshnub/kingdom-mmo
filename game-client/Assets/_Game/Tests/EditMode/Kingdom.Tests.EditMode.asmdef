@@ -1,0 +1,12 @@
+{
+  "name": "Kingdom.Tests.EditMode",
+  "rootNamespace": "Kingdom.Tests",
+  "references": ["Kingdom.Core"],
+  "optionalUnityReferences": ["TestAssemblies"],
+  "includePlatforms": ["Editor"],
+  "autoReferenced": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "allowUnsafeCode": false
+}
+
